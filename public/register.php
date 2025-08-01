@@ -9,7 +9,7 @@
 </head>
 
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-300">
-    <div class="w-full max-w-sm md:max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+    <div class="w-full max-w-sm md:max-w-md bg-white m-2 p-6 md:p-8 rounded-2xl shadow-lg">
         <form action="../api/auth.php" method="POST" class="space-y-4">
             <input type="hidden" name="action" value="register">
             <h2 class="text-2xl font-bold text-green-700 text-center mb-4">สมัครสมาชิก</h2>

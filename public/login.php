@@ -11,8 +11,8 @@
 
 
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-300">
-    <div class="w-full max-w-sm md:max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-lg">
-        <form method="POST" action="../api/auth.php"  class="space-y-4">
+    <div class="w-full max-w-sm md:max-w-md bg-white m-2 p-6 md:p-8 rounded-2xl shadow-lg">
+        <form method="POST" action="../api/auth.php" class="space-y-4">
             <input type="hidden" name="action" value="login">
             <h2 class="text-2xl font-bold text-green-700 text-center mb-4">เข้าสู่ระบบ</h2>
 
@@ -31,6 +31,11 @@
              <button type="submit"
                 class="w-full bg-green-600 text-white font-medium py-2 rounded-md hover:bg-green-700 transition duration-300">
                 เข้าสู่ระบบ
+            </button>
+
+            <button type="submit"
+            class="w-full bg-green-600 text-white font-medium py-2 rounded-md hover:bg-green-700 transition duration-300">
+                <span class="">Line</span>
             </button>
 
             <p class="text-sm text-center px-10 mt-4 text-gray-600">ยังไม่มีบัญชี? <a href="register.php" class="text-green-600 hover:underline">สมัครสมาชิก</a></p>

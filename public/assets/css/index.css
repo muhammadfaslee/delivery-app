@@ -1,43 +1,240 @@
-body { 
-            font-family: 'Sarabun', sans-serif; 
-            max-width: 375px;
-            margin: 0 auto;
-            background: #f8f9fa;
-        }
-        .status-bar {
-            background: white;
-            padding: 8px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .signal-bars {
-            display: flex;
-            gap: 2px;
-            align-items: end;
-        }
-        .bar {
-            width: 3px;
-            background: #000;
-            border-radius: 1px;
-        }
-        .battery {
-            width: 24px;
-            height: 12px;
-            border: 1px solid #000;
-            border-radius: 2px;
-            position: relative;
-            background: #000;
-        }
-        .battery::after {
-            content: '';
-            position: absolute;
-            right: -3px;
-            top: 3px;
-            width: 2px;
-            height: 6px;
-            background: #000;
-            border-radius: 0 1px 1px 0;
-        }
+/* Custom styles for index.php */
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+/* Header Styles */
+.header-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Avatar Dropdown Animation */
+#avatarDropdown {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#avatarDropdown.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Search Input Focus Effect */
+#searchInput:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #3b82f6;
+    ring-opacity: 0.5;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Items Hover Effect */
+.category-item {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.category-item:active {
+    transform: translateY(0);
+}
+
+/* Promotion Slider */
+.promotion-slider {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.promotion-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.promotion-slider .flex {
+    scroll-snap-type: x mandatory;
+}
+
+.promotion-slider .flex > div {
+    scroll-snap-align: start;
+}
+
+/* Restaurant Items */
+.restaurant-item {
+    transition: all 0.2s ease-in-out;
+    border-left: 4px solid transparent;
+}
+
+.restaurant-item:hover {
+    transform: translateX(4px);
+    border-left-color: #3b82f6;
+    background-color: #f8fafc;
+}
+
+.restaurant-item:active {
+    transform: translateX(2px);
+    background-color: #e2e8f0;
+}
+
+/* Restaurant Section */
+.restaurant-section {
+    margin-bottom: 1.5rem;
+}
+
+/* Bottom Navigation */
+.nav-btn {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.nav-btn:hover {
+    background-color: #f1f5f9;
+    border-radius: 8px;
+}
+
+.nav-btn.active {
+    color: #3b82f6;
+}
+
+.nav-btn.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background-color: #3b82f6;
+    border-radius: 0 0 3px 3px;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loading-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 375px) {
+    .px-5 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .category-item {
+        padding: 0.5rem;
+    }
+    
+    .promotion-slider .flex-none {
+        width: 280px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111827;
+        color: #f9fafb;
+    }
+    
+    .bg-white {
+        background-color: #1f2937;
+    }
+    
+    .text-gray-900 {
+        color: #f9fafb;
+    }
+    
+    .text-gray-600 {
+        color: #9ca3af;
+    }
+    
+    .text-gray-500 {
+        color: #6b7280;
+    }
+    
+    .bg-gray-100 {
+        background-color: #374151;
+    }
+    
+    .border-gray-200 {
+        border-color: #374151;
+    }
+}
+
+/* Animation keyframes */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideInFromBottom 0.3s ease-out;
+}
+
+/* Floating Action Button */
+.floating-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 40;
+}
+
+.floating-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+.floating-btn:active {
+    transform: translateY(0);
+}
