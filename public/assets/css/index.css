@@ -1,0 +1,43 @@
+body { 
+            font-family: 'Sarabun', sans-serif; 
+            max-width: 375px;
+            margin: 0 auto;
+            background: #f8f9fa;
+        }
+        .status-bar {
+            background: white;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .signal-bars {
+            display: flex;
+            gap: 2px;
+            align-items: end;
+        }
+        .bar {
+            width: 3px;
+            background: #000;
+            border-radius: 1px;
+        }
+        .battery {
+            width: 24px;
+            height: 12px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            position: relative;
+            background: #000;
+        }
+        .battery::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 3px;
+            width: 2px;
+            height: 6px;
+            background: #000;
+            border-radius: 0 1px 1px 0;
+        }
