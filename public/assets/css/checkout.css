@@ -1,0 +1,366 @@
+/* Checkout page styles */
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f9fafb;
+    padding-bottom: 120px;
+}
+
+/* Address options */
+.address-option input[type="radio"]:checked + div {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+}
+
+.address-option input[type="radio"]:checked + div .radio-indicator {
+    border-color: #3b82f6;
+    background-color: #3b82f6;
+}
+
+.address-option input[type="radio"]:checked + div .radio-indicator > div {
+    display: block;
+    background-color: white;
+}
+
+.address-option:hover div {
+    border-color: #93c5fd;
+}
+
+/* Payment options */
+.payment-option input[type="radio"]:checked + div {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+}
+
+.payment-option input[type="radio"]:checked + div .radio-indicator {
+    border-color: #3b82f6;
+    background-color: #3b82f6;
+}
+
+.payment-option input[type="radio"]:checked + div .radio-indicator > div {
+    display: block;
+    background-color: white;
+}
+
+.payment-option:not(.opacity-50):hover div {
+    border-color: #93c5fd;
+}
+
+/* Radio indicators */
+.radio-indicator {
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Quick note buttons */
+.quick-note-btn {
+    transition: all 0.2s ease;
+}
+
+.quick-note-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quick-note-btn:active {
+    transform: translateY(0);
+}
+
+.quick-note-btn.selected {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* Special instructions textarea */
+#specialInstructions {
+    transition: all 0.2s ease;
+}
+
+#specialInstructions:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Bottom bar */
+.fixed.bottom-0 {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Confirm order button */
+#confirmOrderBtn {
+    position: relative;
+    overflow: hidden;
+}
+
+#confirmOrderBtn:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+#confirmOrderBtn:not(:disabled):active {
+    transform: translateY(0);
+}
+
+#confirmOrderBtn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+#confirmOrderBtn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Order summary items */
+.order-item {
+    transition: all 0.2s ease;
+    padding: 12px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+}
+
+.order-item:hover {
+    background: #f1f5f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Address modal */
+#addressModal .absolute {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Address type buttons */
+.address-type-btn {
+    transition: all 0.2s ease;
+}
+
+.address-type-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[name="addressType"]:checked + .address-type-btn {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+}
+
+/* Form inputs */
+input[type="tel"], 
+input[type="text"], 
+textarea {
+    transition: all 0.2s ease;
+}
+
+input[type="tel"]:focus, 
+input[type="text"]:focus, 
+textarea:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error messages */
+.success-message {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeInUp 0.3s ease;
+    border-left: 4px solid #10b981;
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeInUp 0.3s ease;
+    border-left: 4px solid #ef4444;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Delivery time indicator */
+.delivery-time {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    .address-option div,
+    .payment-option div {
+        padding: 16px;
+    }
+    
+    .quick-note-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    #addressModal .absolute {
+        max-height: 95vh;
+    }
+    
+    .address-type-btn {
+        padding: 16px 8px;
+    }
+    
+    .fixed.bottom-0 {
+        padding: 16px;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ripple effect for buttons */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Order summary animations */
+.order-summary-enter {
+    animation: slideInFromLeft 0.3s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Sticky header backdrop */
+.sticky {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hover effects for interactive elements */
+.address-option:hover,
+.payment-option:not(.opacity-50):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.address-option:active,
+.payment-option:active {
+    transform: translateY(0);
+}
+
+/* Focus indicators */
+.address-option:focus-within div,
+.payment-option:focus-within div {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Disabled states */
+.payment-option.opacity-50 {
+    cursor: not-allowed;
+}
+
+.payment-option.opacity-50:hover {
+    transform: none;
+    box-shadow: none;
+}
